@@ -28,7 +28,13 @@ class ProjectsController extends Controller
             'description' => 'required'
         ]);
 
-        Project::create($attributes);
+//        $attributes['owner_id'] = auth()->id();
+
+        // owner_id create automatically
+        auth()->user()->projects()->create($attributes);
+
+
+//        Project::create($attributes);  deer oruulsan bolhoor hasagdsan
 
         return redirect('/projects');
     }
