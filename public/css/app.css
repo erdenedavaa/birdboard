@@ -18003,6 +18003,15 @@ video {
   box-shadow: 0 2px 7px 0 #b0eaff;
 }
 
+.card {
+  --bg-opacity: 1;
+  background-color: #fff;
+  background-color: rgba(255, 255, 255, var(--bg-opacity));
+  border-radius: 0.5rem;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.08);
+  padding: 1.25rem;
+}
+
 @media (min-width: 640px) {
   .sm\:space-y-0 > :not(template) ~ :not(template) {
     --space-y-reverse: 0;
