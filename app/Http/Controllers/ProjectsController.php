@@ -40,12 +40,12 @@ class ProjectsController extends Controller
 //        $attributes['owner_id'] = auth()->id();
 
         // owner_id create automatically
-        auth()->user()->projects()->create($attributes);
+        $project = auth()->user()->projects()->create($attributes);
 
 
 //        Project::create($attributes);  deer oruulsan bolhoor hasagdsan
 
-        return redirect('/projects');
+        return redirect($project->path());
     }
 
 }
