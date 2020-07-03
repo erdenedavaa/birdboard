@@ -9,6 +9,8 @@ class ProjectsController extends Controller
 {
     public function index()
     {
+        // Jeffray ene urd argad durgui, iluu deer arga ni model deer suulgaj uguh. User model haraarai.
+//        $projects = auth()->user()->projects()->orderBy('updated_at', 'desc')->get();
         $projects = auth()->user()->projects;
 
         return view('projects.index', compact('projects'));
