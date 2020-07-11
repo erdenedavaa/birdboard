@@ -38,6 +38,7 @@
             return view('projects.edit', compact('project'));
         }
 
+        // Jeffray prefer this
         public function update(Project $project)
         {
             $this->authorize('update', $project);
