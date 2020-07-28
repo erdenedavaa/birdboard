@@ -50,6 +50,20 @@
         }
 
         /** @test */
+        public function a_user_can_see_all_projects_they_have_been_invited_to_on_their_dashboard()
+        {
+            // given we're signed in
+            $user = $this->signIn();
+
+            // and we're been invited to a project that was not by created by us
+            $project = tap(ProjectFactory::create())->invite($user);
+
+            // when I visit my dashboard
+            // I should see that project.
+            $this->get('/projects')->assertSee($project->title);
+        }
+
+        /** @test */
         public function a_user_can_delete_a_project()
         {
             $this->withoutExceptionHandling();

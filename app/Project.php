@@ -47,7 +47,7 @@ class Project extends Model
         // and also a member can have many projects
         // In this situation, we need PIVOT table.
 
-        return $this->belongsToMany(User::class, 'project_members');
+        return $this->belongsToMany(User::class, 'project_members')->withTimestamps();
     }
 }
 
