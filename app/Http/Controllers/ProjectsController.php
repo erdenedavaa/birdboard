@@ -48,6 +48,15 @@
             return redirect( $project->path() );
         }
 
+        public function destroy(Project $project)
+        {
+            $this->authorize('update', $project);
+
+            $project->delete();
+
+            return redirect('/projects');
+        }
+
         /**
          * @return array
          */
