@@ -46,11 +46,34 @@
         public function recordActivity($description)
         {
             $this->activity()->create([
+                'user_id' => ($this->project ?? $this)->owner->id,
                 'description' => $description,
                 'changes'     => $this->activityChanges(),
                 'project_id'  => class_basename($this) === 'Project' ? $this->id : $this->project_id
             ]);
         }
+
+//        public function activityOwner()
+//        {
+            // Doorh hereggui
+//            if (auth()->check()) {
+//                return auth()->user();
+//            }
+
+//            if (class_basename($this) === 'Project') {
+//                return $this->owner;
+//            }
+//
+//            return $this->project->owner;
+
+            // Doorhiig INLINE bolgoj bolno.
+//            $project = $this->project ?? $this;
+//
+//            return $project->owner;
+
+                // Deer ene function iig byheld ni inline bolgoj bolno.
+//            return ($this->project ?? $this)->owner;
+//        }
 
         public function activity()
         {
