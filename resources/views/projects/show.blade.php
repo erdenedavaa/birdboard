@@ -72,19 +72,21 @@
                         <button type="submit" class="button">Save</button>
                     </form>
 
-                    @if ($errors->any())
-                        <div class="field mt-6">
-                            @foreach ($errors->all() as $error)
-                                <li class="text-sm text-red-600">{{ $error }}</li>
-                            @endforeach
-                        </div>
-                    @endif
+                    @include('errors')
 
                 </div>
             </div>
             <div class="lg:w-1/4 px-3 lg:py-10">
                 @include('projects.card')
                 @include('projects.activity.card')
+
+{{--                @if (auth()->user()->is($project->owner))--}}
+{{--                    @include('projects.invite')--}}
+{{--                @endif--}}
+
+                @can('manage', $project)
+                    @include(('projects.invite'))
+                @endcan
             </div>
         </div>
     </main>
