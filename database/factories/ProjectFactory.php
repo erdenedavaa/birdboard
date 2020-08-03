@@ -13,6 +13,7 @@ $factory->define(Project::class, function (Faker $faker) {
 //        'owner_id' => function() {
 //            return factory(App\User::class)->create()->id;
 //        }
+        'notes' => 'Foobar notes',
         'owner_id' => factory(User::class)
     ];
 });
