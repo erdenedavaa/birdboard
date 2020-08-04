@@ -16,10 +16,29 @@
 
 .button {
     //@apply bg-blue-400 text-white no-underline rounded-lg shadow-lg text-sm py-2 px-5;
-    @apply bg-tsenher text-white no-underline rounded-lg text-sm py-2 px-5;
+    @apply bg-button text-white no-underline rounded-lg text-sm py-2 px-5;
     box-shadow: 0 2px 7px 0 #b0eaff;
 }
 
 .card {
-    @apply bg-white rounded-lg shadow p-5;
+    @apply bg-card rounded-lg shadow p-5;
+    color: var(--text-default-color);
+}
+
+.theme-light {
+    --page-background-color: #f5f6f9;
+    --card-background-color: white;
+    --button-background-color: #47cdff;
+    --header-background-color: white;
+
+    --text-default-color: #222;
+}
+
+.theme-dark {
+    --page-background-color: #17181e;
+    --card-background-color: #1f2027;
+    --button-background-color: #59B6F9;
+    --header-background-color: #1F2027;
+
+    --text-default-color: #fff;
 }

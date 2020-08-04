@@ -17,7 +17,18 @@ module.exports = {
 
       black: '#000',
       white: '#fff',
+      // Start of Ongoo's colors
         tsenher: '#47cdff',
+        page: 'var(--page-background-color)',
+        card: 'var(--card-background-color)',
+        button: 'var(--button-background-color)',
+        header: 'var(--header-background-color)',
+
+        default: 'var(--text-default-color)',
+
+        // End of Ongoo's colors
+
+
       gray: {
         100: '#f7fafc',
         200: '#f5f6f9',
