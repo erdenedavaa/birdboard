@@ -25,6 +25,10 @@ module.exports = {
         header: 'var(--header-background-color)',
 
         default: 'var(--text-default-color)',
+        accent: 'var(--text-accent-color)',
+        'accent-light': 'var(--text-accent-light-color)',
+        muted: 'var(--text-muted-color)',
+        'muted-light': 'var(--text-muted-light-color)',
 
         // End of Ongoo's colors
 
