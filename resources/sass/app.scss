@@ -4,13 +4,16 @@
 //
 @tailwind utilities;
 
+// Ene doorh huuchirsan bololtoi
 //@tailwind preflight;
 
+// tur zuur comment bolgoe Start
 @import "themes/light";
 @import "themes/dark";
-
+//
 @import "components/button";
 @import "components/card";
+// tur zuur comment bolgoe END
 
 body,
 button {
