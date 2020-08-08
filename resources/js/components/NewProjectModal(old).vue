@@ -11,9 +11,9 @@
                             type="text"
                             id="title"
                             class="border  p-2 text-xs block w-full rounded"
-                            :class = "form.errors.title ? 'border-error' : 'border-muted-light'"
+                            :class = "errors.title ? 'border-error' : 'border-muted-light'"
                             v-model="form.title">
-                        <span class="text-xs italic text-error" v-if="form.errors.title" v-text="form.errors.title[0]"></span>
+                        <span class="text-xs italic text-error" v-if="errors.title" v-text="errors.title[0]"></span>
                     </div>
 
                     <div class="mb-4">
@@ -21,11 +21,11 @@
                         <textarea
                             id="description"
                             class="border p-2 text-xs block w-full rounded"
-                            :class = "form.errors.description ? 'border-error' : 'border-muted-light'"
+                            :class = "errors.description ? 'border-error' : 'border-muted-light'"
                             rows="7"
                             v-model="form.description"></textarea>
 
-                        <span class="text-xs italic text-error" v-if="form.errors.description" v-text="form.errors.description[0]"></span>
+                        <span class="text-xs italic text-error" v-if="errors.description" v-text="errors.description[0]"></span>
 
                     </div>
                 </div>
@@ -67,36 +67,44 @@
 </template>
 
 <script>
-import BirdboardForm from "./BirdboardForm";
-
 export default {
-
     name: "NewProjectModal",
 
     data() {
         return {
-            form: new BirdboardForm({
+            form: {
                 title: '',
                 description: '',
                 tasks: [
                     { body: ''},
                 ]
-            })
+            },
+
+            errors: {}
         }
     },
 
     methods: {
         addTask() {
-            this.form.tasks.push({body: ''});
+            this.form.tasks.push({value: ''});
         },
 
-        async submit() {
-            if (! this.form.tasks[0].body) {
-                delete this.form.originalData.tasks;
-            }
+        // submit() {
+        //     axios.post('/projects', this.form)
+        //         .then(response => {
+        //             location = response.data.message;
+        //         })
+        //         .catch(error => {
+        //             this.errors = error.response.data.errors;
+        //         });
+        // }
 
-            this.form.submit('/projects')
-                .then(response => location = response.data.message);
+        async submit() {
+            try {
+                location = (await axios.post('/projects', this.form)).data.message;
+            } catch (error) {
+                this.errors = error.response.data.errors;
+            }
         }
     }
 }
